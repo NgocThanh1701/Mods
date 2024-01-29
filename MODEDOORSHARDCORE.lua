@@ -1,5 +1,5 @@
 ---JOIN THE OFFICIAL HARDCORE PRIVATE SERVER FOR EASY MATCHMAKING AND PLAYING WITH RANDOMS!
----Official Private Server:  https://www.roblox.com/games/6516141723?privateServerLinkCode=73109408374654121964289352839616
+---Official Private Server:  https://www.roblox.com/share?code=76693c7c690e9c46973e29ee4e595b6f&type=Server
 
 
 ---Join The Official Hardcore discord and Silly Billy Studios discord :epic:
