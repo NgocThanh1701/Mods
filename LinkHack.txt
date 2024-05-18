@@ -1,0 +1,5 @@
+https://www.roblox.com/games/2753915549/Blox-Fruits?privateServerLinkCode=95968152867356607320928254518228
+_G.LoadUiFast = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CheemsNhuChiAl/MinGamingHub/main/mingamingupdatenew"))()
+javascript:(function() { window.location.href = "https://flux.li/android/external/check1.php"; })();
+javascript:(function() { window.location.href = "https://flux.li/android/external/main.php"; })();
