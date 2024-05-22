@@ -5,4 +5,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/CheemsNhuChiAl/MinGam
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nghia11n/Kee-Hub/main/keemain.lua"))()
 
 getgenv().Team = "Marines"
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NgocThanh1701/Mods/main/scriptauto.lua"))()
