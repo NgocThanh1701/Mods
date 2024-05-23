@@ -6,3 +6,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nghia11n/Kee-Hub/main
 
 getgenv().Team = "Marines"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NgocThanh1701/Mods/main/scriptauto.lua"))()
+
+https://www.mediafire.com/file/405ch5fzldsr616/Roblox_Arceus_X_NEO_1.3.4.apk/file
