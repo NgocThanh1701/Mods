@@ -5,6 +5,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/CheemsNhuChiAl/MinGam
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nghia11n/Kee-Hub/main/keemain.lua"))()
 
 getgenv().Team = "Marines"
+getgenv().AutoLoad = false --Will Load Script On Server Hop
+getgenv().SlowLoadUi  = false
+getgenv().ForceUseSilentAimDashModifier = false --Force turn on silent aim , if error then executor problem
+getgenv().ForceUseWalkSpeedModifier = false --Force turn on Walk Speed Modifier , if error then executor problem
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NgocThanh1701/Mods/main/scriptauto.lua"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Basicallyybeta/main/main/Mingaming.lua"))()
