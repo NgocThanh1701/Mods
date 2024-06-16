@@ -4,6 +4,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/CheemsNhuChiAl/MinGam
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nghia11n/Kee-Hub/main/keemain.lua"))()
 
+getgenv().Team = "Marines"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NgocThanh1701/Mods/main/W-Azure.lua"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Basicallyybeta/main/main/Mingaming.lua"))()
