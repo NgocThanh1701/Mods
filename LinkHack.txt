@@ -8,3 +8,6 @@ getgenv().Team = "Marines"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NgocThanh1701/Mods/main/W-Azure.lua"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Basicallyybeta/main/main/Mingaming.lua"))()
+
+javascript:(function() { window.location.href = "https://flux.li/android/external/check1.php"; })();
+javascript:(function() { window.location.href = "https://flux.li/android/external/main.php"; })();
