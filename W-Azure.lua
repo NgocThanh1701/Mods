@@ -1,9 +1,8 @@
-getgenv().SetFpsCap = false
+script_key = "GeBtsYYUVzRVJkJfwouBINmjlIUqNkfN"
+getgenv().SetFpsCap = false 
 getgenv().FpsCap = 60
-getgenv().OneClickUi = true -- Only Open Necessacry Ui For One Click
-getgenv().FpsBoost1 = false
-    getgenv().WhiteScreen = true
     getgenv().UiCheckItems = false
+    getgenv().WhiteScreen = false
     getgenv().OneClickSetting = {
         Enable=true,
         UnlimitGetQuest=true,
@@ -12,25 +11,26 @@ getgenv().FpsBoost1 = false
         RedeemCode=false,
         Sea2KeyHop=true,
         FruitEat = { --Priority, Name, 
-            [1] = {"Magma-Magma"},
-            [2] = {"Magma-Magma"}
+            [1] = {},
+            [2] = {}
         },
-        EatFruitFromStorage = true,
+        EatFruitFromStorage = false,
         SnipeFruit = true,
         SnipeFruitMirage = true,
         HopIfFoundNearExploiter = false,
         HopHakiColor =false,
         HopTushita = false,
-        HopValkyriehelm = true,
-        HopMirrorFractal=true,
+        HopValkyriehelm = false,
+        HopMirrorFractal=false,
         FarmPole = false, -- Turn off If Want Focus Level
-        FarmItems = false, --Turn off If Want Focus Level And CDK, THis Only get After You Get God Human
+        FarmItems = true, --Turn off If Want Focus Level And CDK, THis Only get After You Get God Human
         DisableSoulGuitar = false,
         DisableCDK = false,
-
+        DisableRaceEvolve = false,
+         RollRace={
+            Enable = false,
+            Races = {"Mink","Fishman","Human","Skypiea"}
+        },
+       MinFragment = 20000, --Farm After Max Level
     }
-    getgenv().OneClickFarms = {
-        ["Shark Anchor"] = false,
-    }
-getgenv().AutoLoad = false --Will Load Script On Server Hop
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/rblx/main/W-azure/BloxFruit/OneClickLoader.lua"))()
