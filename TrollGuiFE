@@ -1,0 +1,128 @@
+local UIS = game:GetService("UserInputService")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+local isR6 = humanoid.RigType == Enum.HumanoidRigType.R6
+
+local gui = Instance.new("ScreenGui")
+gui.Parent = player.PlayerGui
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 250)
+frame.Position = UDim2.new(0.5, -100, 0.5, -125)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame.Active = true
+frame.Parent = gui
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+title.Text = "Choose"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Parent = frame
+
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -30, 0, 0)
+closeButton.Text = "X"
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Parent = frame
+closeButton.MouseButton1Click:Connect(function()
+    gui:Destroy()
+end)
+
+local minimizeButton = Instance.new("TextButton")
+minimizeButton.Size = UDim2.new(0, 30, 0, 30)
+minimizeButton.Position = UDim2.new(1, -60, 0, 0)
+minimizeButton.Text = "-"
+minimizeButton.BackgroundColor3 = Color3.fromRGB(255, 165, 0)
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.Parent = frame
+
+local buttons = {
+    {name = "Bang V2", r6 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/BangV2R6", r15 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/BangV2R15"}, 
+    {name = "Get Banged", r6 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/GetBangedR6", r15 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/GetBangedR15"}, 
+    {name = "Suck", r6 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/SuckR6", r15 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/SuckR15"}, 
+    {name = "Get Suc", r6 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/GetSucR6", r15 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/GetSucR15"}, 
+    {name = "Jerk", r6 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/JerkR6", r15 = "https://raw.githubusercontent.com/NgocThanh1701/Mods/main/JerkR15"}
+}
+
+local buttonObjects = {}
+
+for i, data in ipairs(buttons) do
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(1, -10, 0, 40)
+    button.Position = UDim2.new(0, 5, 0, 30 + (i - 1) * 45)
+    button.Text = data.name
+    button.BackgroundColor3 = Color3.fromRGB(0, 140, 255)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Parent = frame
+    table.insert(buttonObjects, button)
+
+    button.MouseButton1Click:Connect(function()
+        local url = isR6 and data.r6 or data.r15
+        local success, response = pcall(function()
+            return game:HttpGet(url, true)
+        end)
+
+        if success then
+            loadstring(response)()
+        else
+            warn("Failed to load script for " .. data.name)
+        end
+    end)
+end
+
+local minimized = false
+
+local function updateVisibility()
+    if minimized then
+        frame.Size = UDim2.new(0, 200, 0, 30) 
+    else
+        frame.Size = UDim2.new(0, 200, 0, 250) 
+    end
+
+    for _, button in ipairs(buttonObjects) do
+        button.Visible = not minimized
+    end
+end
+
+minimizeButton.MouseButton1Click:Connect(function()
+    minimized = not minimized
+    updateVisibility()
+end)
+
+
+local dragging = false
+local dragStart = nil
+local startPos = nil
+
+title.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+    end
+end)
+
+title.InputChanged:Connect(function(input)
+    if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end)
+
+title.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = false
+    end
+end)
+print("Successfully loaded script")
+print("Cre pyst")
+print("Script make by Thành")
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Successfully";
+	Text = "loaded script";
+	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
